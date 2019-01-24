@@ -3,12 +3,13 @@
 using namespace std;
 double maxSubSeqSum1(double *array, int n);
 double maxSubSeqSum2(double array[], int n);
+double maxSubSeqSum4(double array[], int n);
 
 int main()
 {
     double array[13] = {10, -3, 4, 6, -5, 7, -1, 1};
     int length;
-    double n1, n2;
+    double n1, n2, n4;
 
     length = sizeof(array) / sizeof(array[0]);
     n1 = maxSubSeqSum1(array, length);
@@ -16,6 +17,9 @@ int main()
 
     n2 = maxSubSeqSum2(array, length);
     cout << "max sub seq sum: " << n2 << ".\n";
+
+    n4 = maxSubSeqSum4(array, length);
+    cout << "max sub seq sum: " << n4 << ".\n";
     return 0;
 }
 
@@ -24,7 +28,6 @@ double maxSubSeqSum1(double array[], int n)
 {
 	//用来存储最大子序列的和
 	int maxSum = 0;
-
 	//i标记子序列的头
 	for (int i = 0; i < n; i++)
 	{
@@ -33,19 +36,16 @@ double maxSubSeqSum1(double array[], int n)
 		{
 			//用来存储当前头尾计算的求和结果
 			int thisSum = 0;
-
 			//将子序列的值依次加入求和结果
 			for (int k = i; k <= j; k++)
 			{
 				thisSum += array[k];
 			}
-
 			//存储两者的最大值
 			if(thisSum > maxSum)
 				maxSum = thisSum;
 		}
 	}
-
 	return maxSum;
 }
 
@@ -69,4 +69,32 @@ double maxSubSeqSum2(double array[], int n)
         }
     }
     return max;
+}
+
+// 分治法
+double maxSubSeqSum3(double array[], int n) 
+{
+    return 0.0;
+}
+
+
+// 在线处理
+double maxSubSeqSum4(double array[], int n)
+{
+    int i;
+    double thisSum, maxSum = 0;
+    
+    for (i=0;i<n;i++)
+    {
+        thisSum += array[i];
+        if (thisSum > maxSum) 
+        {
+            maxSum = thisSum;
+        } 
+        else if (thisSum < 0) 
+        {
+            thisSum = 0;
+        }
+    }
+    return maxSum;
 }
