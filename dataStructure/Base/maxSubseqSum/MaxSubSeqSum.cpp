@@ -3,13 +3,14 @@
 using namespace std;
 double maxSubSeqSum1(double *array, int n);
 double maxSubSeqSum2(double array[], int n);
+double maxSubSeqSum3(double array[], int left, int right);
 double maxSubSeqSum4(double array[], int n);
 
 int main()
 {
-    double array[13] = {10, -3, 4, 6, -5, 7, -1, 1};
+    double array[] = {10, -3, 4, 6, -5, 7, -1, 1};
     int length;
-    double n1, n2, n4;
+    double n1, n2, n3, n4;
 
     length = sizeof(array) / sizeof(array[0]);
     n1 = maxSubSeqSum1(array, length);
@@ -17,6 +18,9 @@ int main()
 
     n2 = maxSubSeqSum2(array, length);
     cout << "max sub seq sum: " << n2 << ".\n";
+
+    n3 = maxSubSeqSum3(array, 0, length-1);
+    cout << "max sub seq sum: " << n3 << ".\n";
 
     n4 = maxSubSeqSum4(array, length);
     cout << "max sub seq sum: " << n4 << ".\n";
@@ -72,9 +76,41 @@ double maxSubSeqSum2(double array[], int n)
 }
 
 // 分治法
-double maxSubSeqSum3(double array[], int n) 
+double maxSubSeqSum3(double array[], int left, int right) 
 {
-    return 0.0;
+    if (left == right) 
+    {
+        return array[left];
+    }
+    // 计算中点
+    int center = (left + right) / 2;
+
+    // 计算左半边最大子序列和
+    double leftMaxSum = maxSubSeqSum3(array, left, center);
+    // 计算右半边最大子序列和
+    double rightMaxSum = maxSubSeqSum3(array, center+1, right);
+    // 左边与右边最大子序列和比较
+    double lrMaxSum = max(leftMaxSum, rightMaxSum);
+
+    // 计算跨越中心点的最大子序列和，从中点往两边算起
+    double lcMaxSum, lcCurSum = 0;
+    // 从center向左处理左半边
+    for (int i=center; i>=left; i--)
+    {
+        lcCurSum += array[i];
+        lcMaxSum = max(lcCurSum, lcMaxSum);
+    }
+    // 从center向右处理右半边
+    double crMaxSum, crCurSum = 0;
+    for (int j=center+1; j<=right; j++)
+    {
+        crCurSum += array[j];
+        crMaxSum = max(crCurSum, crMaxSum);
+    }
+
+    double maxSum = max(lrMaxSum, lcMaxSum + crMaxSum);
+
+    return maxSum;
 }
 
 
