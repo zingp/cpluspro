@@ -1,7 +1,7 @@
 // 最大子序列和
 #include <iostream>
 using namespace std;
-double maxSubSeqSum1(double *array, int n);
+double maxSubSeqSum1(double array[], int n);
 double maxSubSeqSum2(double array[], int n);
 double maxSubSeqSum3(double array[], int left, int right);
 double maxSubSeqSum4(double array[], int n);
