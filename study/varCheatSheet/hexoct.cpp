@@ -4,7 +4,7 @@ int main()
 {
     using namespace std;
     int cheast = 42;
-    int waist = 0x42;
+    int waist = 0x42;  // 16进制
     int inseam = 042;
 
     cout << "monsieur cuts a striking figure\n";
