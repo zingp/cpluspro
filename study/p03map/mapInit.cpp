@@ -18,4 +18,4 @@ int main()
     return 0;
 }
 
-//g++ -g -std=c++11 -o mapini mapInit.cpp
+//g++  -o mapini mapInit.cpp
