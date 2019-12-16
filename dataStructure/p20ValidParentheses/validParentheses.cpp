@@ -43,4 +43,8 @@ int main()
 
     res = sObj.isValid(s);
     cout << res << endl;
+
+    string s2 = "(";
+    res = sObj.isValid(s2);
+    cout << res << endl;
 }
