@@ -18,6 +18,6 @@ int main(void){
     cin >> y;
     cout << boolalpha << y << endl;
 
-    system("pause");
+    system("pwd");   //stdlib.h
     return 0;
 }
