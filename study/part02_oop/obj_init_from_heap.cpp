@@ -6,7 +6,7 @@ public:
 
     void changeVol();
     void power();
-}
+};
 
 // 从堆中实例化
 int main(void)
