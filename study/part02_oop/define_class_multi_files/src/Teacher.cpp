@@ -1,6 +1,6 @@
-#include<Teacher.h>
-#include<string>
-#include<iostream>
+#include "../header/Teacher.h" // 我擦这里一定要是双引号引入头文件不是<>
+#include <string>
+#include <iostream>
 using namespace std;
 
 void Teacher::setName(string _name)
