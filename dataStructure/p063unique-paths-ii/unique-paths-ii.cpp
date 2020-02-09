@@ -19,8 +19,6 @@ using namespace std;
 链接：https://leetcode-cn.com/problems/unique-paths-ii/solution/bu-tong-lu-jing-ii-by-leetcode/
 */
 
-//
-
 class Solution {
 public:
     int uniquePathsWithObstacles(vector< vector<int> >& obstacleGrid) {
