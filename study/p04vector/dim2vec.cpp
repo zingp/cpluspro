@@ -4,9 +4,10 @@ using namespace std;
 
 /*
 二维数组两种定义方法：
-    以 “定义一个4行5列的二维数组”为例
-vector<vector<int> >obj; 
-这里最外的<>要有空格，否则在比较旧的编译器下无法通过。
+方法一： 先定义一个N行的vector 每一个元素为vector；然后遍历将每个vector元素resize为包含M个元素；
+方法二：
+    直接定义：vector<vector<int> >dp(N, vector<int>(M, 0)); 初始化为0;
+    这里最外的 >要有空格，否则在比较旧的编译器下无法通过。
 */
 int main(void)
 {

@@ -15,9 +15,9 @@
 ### 1.构造函数
 - vector():创建一个空vector
 - vector(int nSize):创建一个vector,元素个数为nSize
-- vector(int nSize,const t& t):创建一个- vector，元素个数为nSize,且值均为t
+- vector(int nSize, const t& t):创建一个- vector，元素个数为nSize, 且值均为t
 - vector(const vector&):复制构造函数
-- vector(begin,end):复制[begin,end)区间内另一个数组的元素到vector中
+- vector(begin, end):复制[begin,end)区间内另一个数组的元素到vector中
 ### 2.增加函数
 - void push_back(const T& x):向量尾部增加一个元素X
 - iterator insert(iterator it,const T& x):向量中迭代器指向元素前增加一个元素x
@@ -52,7 +52,7 @@
 - 3.at 得到编号位置的数据
 - 4.begin 得到数组头的指针
 - 5.end 得到数组的最后一个单元+1的指针
-- 6．front 得到数组头的引用
+- 6.front 得到数组头的引用
 - 7.back 得到数组的最后一个单元的引用
 - 8.max_size 得到vector最大可以是多大
 - 9.capacity 当前vector分配的大小
