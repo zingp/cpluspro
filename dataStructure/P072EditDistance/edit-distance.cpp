@@ -33,6 +33,7 @@
 这到题目很经典，用DP
 dp数组的定义很关键
 dp[i][j] 代表 word1 到 i 位置转换成 word2 到 j 位置需要最少步数
+或者说，dp[i][j] 代表 word1前i个字母 到 word2前j个字母之间的编辑距离。
 
 */
 
@@ -67,6 +68,33 @@ public:
         }
         return dp[m][n];
     }
+
+    int minDistance2(string word1, string word2) {
+        int m = word1.length();
+        int n = word2.length();
+        // 有任一字符串为空串
+        if (m * n == 0) return m + n;
+
+        int DP[m+1][n+1];
+        for (int i = 0; i < m + 1; i++) {
+            DP[i][0] = i;
+        }
+        for (int j = 0; j < n + 1; j++) {
+            DP[0][j] = j;
+        }
+        for (int i = 1; i < m + 1; i++) {
+            for (int j = 1; j < n + 1; j++) {
+                int left = DP[i-1][j] + 1;
+                int right = DP[i][j-1] + 1;
+                int left_right = DP[i-1][j-1];
+
+                if (word1[i-1] != word2[j-1]) left_right += 1;
+                DP[i][j] = min(left, min(right, left_right));
+
+            }
+        }
+        return DP[m][n];
+    }
 };
 
 int main()
@@ -76,5 +104,6 @@ int main()
     Solution obj;
 
     cout << obj.minDistance(word1, word2) << endl;
+    cout << obj.minDistance2(word1, word2) << endl;
     return 0;
 }
