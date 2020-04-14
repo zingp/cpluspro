@@ -63,10 +63,10 @@ public:
         //获取最长字符串长度
         int maxWordLength = 0;
         for (int i = 0; i < wordDict.size(); ++i){
-            maxWordLength = std::max(maxWordLength, (int)wordDict[i].size());
+            maxWordLength = max(maxWordLength, (int)wordDict[i].size());
         }
         for (int i = 1; i <= s.size(); ++i){
-            for (int j = std::max(i-maxWordLength, 0); j < i; ++j){
+            for (int j = max(i-maxWordLength, 0); j < i; ++j){
                 if (DP[j] && m.find(s.substr(j, i-j)) != m.end()){
                     DP[i] = true;
                     break;
