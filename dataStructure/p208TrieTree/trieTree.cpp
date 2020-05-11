@@ -67,6 +67,7 @@ public:
 int main() {
     string str = "apple";
     Trie t = Trie();
+    // Trie* obj = new Trie();
 
     t.insert(str);
     t.insert("apply");
