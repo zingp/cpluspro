@@ -7,7 +7,8 @@ int g_b = 10;
 const int c_g_a = 10;
 const int c_g_b = 10;
 
-int main(){
+int main()
+{
     int a = 10;
     int b = 10;
     cout << "局部变量a地址：" << (long)&a << endl;
